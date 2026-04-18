@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myspace/controllers/theme_controller.dart';
+import 'package:myspace/ui/widgets/leetcode_widget_section.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -34,6 +35,10 @@ class ProfileScreen extends StatelessWidget {
                   color: colorScheme.onSurfaceVariant,
                 ),
               ),
+
+              const SizedBox(height: 24),
+
+              const LeetCodeWidgetSection(),
 
               const SizedBox(height: 32),
 
