@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_widget/home_widget.dart';
@@ -5,6 +7,7 @@ import 'package:myspace/app/bindings/initial_binding.dart';
 import 'package:myspace/app/config/app_theme.dart';
 import 'package:myspace/controllers/navigation_controller.dart';
 import 'package:myspace/controllers/theme_controller.dart';
+import 'package:myspace/firebase_options.dart';
 import 'package:myspace/leetcode_widget/heatmap/heatmap_workmanager.dart';
 import 'package:myspace/leetcode_widget/heatmap/widget_launch_bridge.dart';
 import 'package:myspace/leetcode_widget/heatmap/widget_updater.dart';
@@ -12,6 +15,12 @@ import 'package:myspace/ui/screens/shell_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseFirestore.instance.settings = const Settings(
+    persistenceEnabled: true,
+    cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
+  );
 
   await HeatmapWorkmanager.initialize();
   final Uri? launchedFromWidget =
@@ -23,10 +32,7 @@ Future<void> main() async {
 class MyApp extends StatefulWidget {
   final Uri? launchedFromWidget;
 
-  const MyApp({
-    super.key,
-    required this.launchedFromWidget,
-  });
+  const MyApp({super.key, required this.launchedFromWidget});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -58,6 +64,7 @@ class _MyAppState extends State<MyApp> {
     return Obx(
       () => GetMaterialApp(
         title: 'MySpace',
+        debugShowCheckedModeBanner: false,
         theme: AppTheme.fromSeed(themeCtrl.seedColor),
         home: const ShellScreen(),
       ),

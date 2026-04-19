@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "542418372734",
+    "firebase_url": "https://devdevgo-newsservice-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "devdevgo-newsservice",
+    "storage_bucket": "devdevgo-newsservice.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542418372734:android:08511c7e25ba6bcf20f02f",
+        "android_client_info": {
+          "package_name": "com.myspace.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdzKDsZdsYhY7RE03qrhs0EfI43loSSxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
